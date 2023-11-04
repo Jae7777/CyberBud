@@ -12,7 +12,7 @@ const Logo = () => {
       className="md:block cursor-pointer"
       height="80"
       width="80"
-      src="/images/logo.png"
+      src="/CyberBud Mascot.png"
     />
   )
 }
