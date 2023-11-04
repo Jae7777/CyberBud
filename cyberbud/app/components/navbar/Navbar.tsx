@@ -9,7 +9,7 @@ const Navbar = () => {
     <div className="fixed w-full z-10 shadow-sm">
       <div
         className="
-          py-2
+          py-1
           border-b-[1px]
         "
       >
