@@ -3,13 +3,14 @@
 import Container from "../Container"
 import Logo from "./Logo"
 import UserMenu from "./UserMenu"
+import UploadButton from "../UploadButton"
 
 const Navbar = () => {
   return (
-    <div className="fixed w-full z-10 shadow-sm">
+    <div className="fixed bg-gray-900 w-full z-10 shadow-sm">
       <div
         className="
-          py-1
+          py-2
           border-b-[1px]
         "
       >
@@ -25,6 +26,7 @@ const Navbar = () => {
             "
           >
             <Logo />
+            <UploadButton />
             <UserMenu />
           </div>
         </Container>

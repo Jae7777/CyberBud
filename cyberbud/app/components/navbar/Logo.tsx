@@ -10,8 +10,8 @@ const Logo = () => {
     <Image
       alt="CyberBud Logo"
       className="md:block cursor-pointer"
-      height="80"
-      width="80"
+      height="60"
+      width="60"
       src="/CyberBud Mascot.png"
     />
   )
