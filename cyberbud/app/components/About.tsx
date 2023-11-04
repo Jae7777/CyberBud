@@ -1,6 +1,6 @@
 export default function About(){
     return(
-        <div className="text-center" id="about"> 
+        <div className="text-center pt-4" id="about"> 
             <h1 className="text-6xl">
                 What is Cyberbud?
             </h1>
