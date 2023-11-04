@@ -3,7 +3,7 @@ import { Gothic_A1 } from 'next/font/google'
 import './globals.css'
 import ClientOnly from "./components/ClientOnly"
 import Navbar from "./components/navbar/Navbar"
-import LandingPage from './components/pages/LandingPage'
+import CurrentPage from './components/pages/CurrentPage'
 
 export const metadata: Metadata = {
   title: 'CyberBud',
@@ -25,7 +25,7 @@ export default function RootLayout({
       <body className={font.className}>
         <ClientOnly>
           <Navbar />
-          <LandingPage />
+          <CurrentPage />
         </ClientOnly>
         {children}
       </body>
