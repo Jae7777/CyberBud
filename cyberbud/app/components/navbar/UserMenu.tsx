@@ -2,6 +2,7 @@
 
 import { AiOutlineMenu } from 'react-icons/ai'
 import MenuItem from './MenuItem'
+import UploadButton from '../UploadButton';
 import { useCallback, useState } from 'react'
 
 const UserMenu = () => {
@@ -19,6 +20,8 @@ const UserMenu = () => {
       >
         <div className="flex flex-row cursor-pointer">
           <>
+            <UploadButton />
+            
             <MenuItem 
               onClick={() => {}}
               label="Learn more"

@@ -3,7 +3,6 @@
 import Container from "../Container"
 import Logo from "./Logo"
 import UserMenu from "./UserMenu"
-import UploadButton from "../UploadButton"
 
 const Navbar = () => {
   return (
@@ -26,7 +25,6 @@ const Navbar = () => {
             "
           >
             <Logo />
-            <UploadButton />
             <UserMenu />
           </div>
         </Container>
