@@ -1,29 +1,46 @@
 import ClientOnly from "./components/ClientOnly"
-import About from "./components/About"
+import About from "./components/about/About"
 import ScrollToBottomButton from "./components/ScrollToBottomButton"
+import Dropdown from "./components/form/Dropdown"
+import ProblemForm from "./components/form/ProblemForm"
+import Image from "next/image"
+import Container from "./components/Container"
+import Footer from "./components/footer/Footer"
 
 export default function Home() {
   return (
     <>
       <ClientOnly>
-        <div className="pt-20">
-          <main className="flex flex-col items-center justify-between p-24">
-            <div className="text-center pt-1 mt-4 w-screen">
-                <div className="h-screen">
-                <div className="bg-gradient-to-r from-slate-400 via-gray-400 to-white inline-block text-transparent bg-clip-text">
-                    <h1 className="text-6xl">
-                    Cyberbud
-                    </h1>
-                </div>
-                <h3 className='text-3xl pt-1 mt-4'>
-                    Subtitle
-                </h3>
-                <ScrollToBottomButton></ScrollToBottomButton>
-                </div>
-            </div>
-                <About></About>
-          </main>
+        <div className="
+          shadow-md
+        ">
+          <div className="
+              pt-0 
+              grid 
+              grid-cols-1 
+              sm:grid-cols-1 
+              md:grid-cols-1 
+              lg:grid-cols-2
+              xl:grid-cols-2
+              2xl:grid-cols-2
+              justify-between 
+              px-auto 
+              items-center
+            "
+          >
+            <Image 
+              src="/hacking.png"
+              alt="Hero image"
+              width={400}
+              height={400}
+              className="py-12 mx-auto"
+            />
+            <ProblemForm />
+          </div>
         </div>
+        <About />
+        <Footer />
+        <ScrollToBottomButton></ScrollToBottomButton>
       </ClientOnly>
       
     </>

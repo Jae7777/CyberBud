@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Nunito } from 'next/font/google'
+import { Space_Mono } from 'next/font/google'
 import './globals.css'
 import ClientOnly from "./components/ClientOnly"
 import Navbar from "./components/navbar/Navbar"
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: 'Start writing secure code with CyberBud',
 }
 
-const font = Nunito({
+const font = Space_Mono({
   subsets: ["latin"],
   weight: "400",
 })
@@ -25,7 +25,6 @@ export default function RootLayout({
         <ClientOnly>
           <Navbar />
         </ClientOnly>
-        <CurrentPage />
         {children}
       </body>
     </html>

@@ -20,8 +20,6 @@ const UserMenu = () => {
       >
         <div className="flex flex-row cursor-pointer">
           <>
-            <UploadButton />
-            
             <MenuItem 
               onClick={() => {}}
               label="Learn more"

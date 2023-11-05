@@ -17,7 +17,6 @@ const Logo = () => {
       />
       <div className="
           text-1xl 
-          font-mono 
           bg-violet-900 
           rounded-md 
           outline-double 
