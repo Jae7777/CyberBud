@@ -14,19 +14,22 @@ export default function BreakCode() {
       id: 1,
       title: "Buffer Overflow",
       difficulty: 2.1,
-      description: "Use buffer overflow to trigger an unintended function."
+      description: "Use buffer overflow to trigger an unintended function.",
+      href:"https://www.fortinet.com/resources/cyberglossary/buffer-overflow"
     },
     {
       id: 2,
       title: "SQL Injection",
       difficulty: 3.0,
-      description: "Access information that was not meant to be displayed."
+      description: "Access information that was not meant to be displayed.",
+      href:"https://owasp.org/www-community/attacks/SQL_Injection"
     },
     {
       id: 3,
       title: "DDoS Attack",
       difficulty: 1.8,
-      description: "Overwhelm the target server by using a volume of fake requests."
+      description: "Overwhelm the target server by using a volume of fake requests.",
+      href:"https://www.cloudflare.com/learning/ddos/glossary/denial-of-service/"
     }
   ]
   return(
@@ -46,6 +49,7 @@ export default function BreakCode() {
             title={item.title} 
             difficulty={item.difficulty}
             description={item.description} 
+            href={item.href}
           />
         )})}
       </div>

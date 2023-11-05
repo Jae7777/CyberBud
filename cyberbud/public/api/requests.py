@@ -1,6 +1,4 @@
 import os
-
-os("pip install --user pipenv")
 import config.py
 import subprocess
 import requests
@@ -10,7 +8,6 @@ from api_models import *
 from io import StringIO
 from sqlalchemy.orm import Session
 import json
-
 import openai
 from constants import Constants
 from fastapi import FastAPI, HTTPException, Request, Response, UploadFile, Form, File, Depends
@@ -22,10 +19,13 @@ from fastapi_cache.coder import PickleCoder
 from fastapi import Depends
 
 app = FastAPI()
+uvicorn.run(app, host="127.0.0.1", port=5049)
+
+
 
 @app.get("/")
 async def read_root():
-
+    return {"Hello": "World"}
     return Response(content="Test")
 
 
@@ -118,7 +118,7 @@ async def chat_with_gpt(input_text: str):
     return response_data['choices'][0]['text']
 
 
-@app.post("/api/generate_code")
+@app.post("/generate_code")
 async def generate_code(difficulty: str, exploit_type: str, language: str):
     #get user input from form, 
     with open("file.json", "r") as f:

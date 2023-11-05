@@ -34,6 +34,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           id={id}
         >
           {options.map((item, index) => {
+            
             return (<option key={index}>{item}</option>)
           })}
         </select>

@@ -7,8 +7,10 @@ const Chatbox = () => {
   const [code, setCode] = useState('');
   const [counter, setCounter] = useState('1');
 
+  useEffect(() => {
     async function fetchData() {
-        const response = await fetch("/api/generate_code", {  
+      try {
+        const response = await fetch('api/generate_code', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -20,23 +22,27 @@ const Chatbox = () => {
             })
         });
 
-
         const data = await response.json();
         console.log(data['code']); 
         setCode(data['code']);
-
+      } catch (error) {
+        console.log(error);
+        console.error('Error fetching code:', error);
+      }
+    }
     async function test(){
       const response = await fetch("/api/test.json");
       const data = await response.json();
+      console.log(data);
       let key = "response" + counter;
-      setCode(data['key'])
+      setCode(data['response1'])
       let tmp = counter + 1;
       setCounter(tmp);
     }
     fetchData();
-
-   // test();
-    } 
+    test();
+   
+  }, []);
   return (
     <div className="
         grid
@@ -47,13 +53,12 @@ const Chatbox = () => {
       <div>
         {/* Display the generated code */}
         <div>
-          generated problem
+        <title>Generated Code</title>
         </div>
         <div>
           {code && <pre>{code}</pre>}
         </div>
       </div>
-      
       <div className="">
         <div>
           chatbox

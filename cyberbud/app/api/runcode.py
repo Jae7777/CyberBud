@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+"""<<<<<<< Updated upstream
 =======
 from fastapi import FastAPI, HTTPException, Request, Response, UploadFile, Form, File, Depends
 from starlette.middleware.sessions import SessionMiddleware
@@ -58,3 +58,4 @@ async def chat_with_gpt(input_text: str):
 
 
 >>>>>>> Stashed changes
+"""
