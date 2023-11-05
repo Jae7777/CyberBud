@@ -5,7 +5,7 @@ import BreakCode from "./BreakCode"
 import { useState, useEffect } from "react"
 
 const CurrentPage = () => {
-    const [page, setPage] = useState("landing")
+    const [page, setPage] = useState("breakcode")
 
     return (
         <div>
