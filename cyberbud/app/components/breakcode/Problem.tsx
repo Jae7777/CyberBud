@@ -3,14 +3,14 @@
 import Container from "../Container"
 
 interface ProblemProp {
-    id: number
+    key: number
     title: string 
     difficulty: number
     description: string
 
 }
 const Problem: React.FC<ProblemProp> = ({
-    id,
+    key,
     title, 
     difficulty,  
     description
@@ -29,7 +29,7 @@ const Problem: React.FC<ProblemProp> = ({
             <Container>
                 <div className="flex flex-row justify-between">
                     <div className="pr-4 pl-3">
-                        {id}.
+                        {key}.
                     </div>
                     <div className="pr-12">
                         {title}

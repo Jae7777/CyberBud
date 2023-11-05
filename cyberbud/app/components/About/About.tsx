@@ -7,8 +7,8 @@ export default function About(){
     const spoofingAttackBody = "A spoofing attack is a type of cyberattack in which an attacker disguises their identity or the source of their communication to gain unauthorized access or deceive a target. This can involve impersonating legitimate entities, such as websites, email addresses, or IP addresses, to trick users or systems into revealing sensitive information or accepting malicious content. Common types of spoofing attacks include IP spoofing, email spoofing, and website spoofing. Spoofing attacks can be used for various malicious purposes, such as phishing, data theft, or launching other forms of cyberattacks. To defend against spoofing attacks, security measures like authentication and encryption are crucial."
 
     return(
-        <div className="text-center pt-10" id="about"> 
-            <h1 className="text-6xl">
+        <div className="text-center pt-10"> 
+            <h1 className="text-6xl" id="learn">
                 What is CyberBud?
             </h1>
             <br/>

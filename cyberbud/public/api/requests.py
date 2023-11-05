@@ -1,3 +1,18 @@
+import os
+
+os("pip install --user pipenv")
+import config.py
+import subprocess
+import requests
+import uvicorn
+import httpx
+from api_models import *
+from io import StringIO
+from sqlalchemy.orm import Session
+import json
+
+import openai
+from constants import Constants
 from fastapi import FastAPI, HTTPException, Request, Response, UploadFile, Form, File, Depends
 from starlette.middleware.sessions import SessionMiddleware
 from fastapi_cache import FastAPICache
@@ -5,26 +20,14 @@ from fastapi_cache.backends.inmemory import InMemoryBackend
 from fastapi_cache.decorator import cache
 from fastapi_cache.coder import PickleCoder
 from fastapi import Depends
-import config.py
-import subprocess
-import requests
- import uvicorn
-#Ok idk if we need all of this stuff
-from api_models import *
-from io import StringIO
-from sqlalchemy.orm import Session
-import json
-import os
-import openai
-from constants import Constants
 
 app = FastAPI()
 
-
-
 @app.get("/")
 async def read_root():
+    
     return Response(content="Test")
+
 
 
 '''
@@ -115,7 +118,7 @@ async def chat_with_gpt(input_text: str):
     return response_data['choices'][0]['text']
 
 
-@app.post("/generate-code")
+@app.post("/api/generate_code")
 async def generate_code(difficulty: str, exploit_type: str, language: str):
     #get user input from form, 
     with open("file.json", "r") as f:
@@ -140,13 +143,22 @@ async def generate_code(difficulty: str, exploit_type: str, language: str):
         f.write(program)
 
     subprocess.run(["gcc", "buffer_overflow.c", "-o", difficulty+"_buffer_overflow.out"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    #return octet stream of executable file and code snippet
+    
+    compiletest = compile_and_run_c_code(program)
 
-    return {"code": program }
-
+    if compiletest["error"] == "Compilation failed":
+        return HTTPException(status_code=500, detail="Error: Compilation failed")
+    
+    # Add a success response with code snippet
+    return Response(content=program, media_type="plain/text")
+    
 
 #get executable file and code snippet from generate code, then download executable file to users computer and send code snippet to web page
 @app.get("/download")
 async def download_file():
     file_path = os.path.join(os.getcwd(), "buffer_overflow.out")
     return FastAPI.FileResponse(file_path, media_type="application/octet-stream", filename="buffer_overflow.out")
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=5049)

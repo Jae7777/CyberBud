@@ -22,10 +22,10 @@ const UserMenu = () => {
         <div className="flex flex-row cursor-pointer">
           <>
             <MenuItem 
-              label="Learn more"
+              label="Learn more" href="#learn"
             />
             <MenuItem 
-              label="Break the code"
+              label="Break the code" href="#about"
             />
           </>
         </div>

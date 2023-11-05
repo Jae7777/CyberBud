@@ -4,12 +4,15 @@ import Link from 'next/link'
 
 interface MenuItemProps {
   label: string;
+  href: string;
 }
 
 const MenuItem: React.FC<MenuItemProps> = ({
-  label
+  label,
+  href
 }) => {
   return (
+    <a href={href}>
     <div
       className="
         px-4
@@ -21,6 +24,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
     >
       {label}
     </div>
+    </a>
   )
 }
 

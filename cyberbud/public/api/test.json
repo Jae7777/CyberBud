@@ -1,3 +1,36 @@
 {
-    "test":"asddffg"
+    "response1" : "#include <iostream>
+    #include <string>
+    #include <mysql/mysql.h>
+    int main() {
+        // Input from the user
+        std::string username;
+        std::cout << 'Enter your username: ';
+        std::cin >> username;
+    
+        // Vulnerable SQL query
+        std::string query = 'SELECT * FROM users WHERE username='' + username + ''';
+    
+        MYSQL* connection = mysql_init(NULL);
+        if (mysql_real_connect(connection, 'localhost', 'username', 'password', 'database', 0, NULL, 0)) {
+            if (mysql_query(connection, query.c_str()) == 0) {
+                MYSQL_RES* result = mysql_store_result(connection);
+                if (result != nullptr) {
+                    MYSQL_ROW row;
+                    while ((row = mysql_fetch_row(result))) {
+                        std::cout << 'Welcome, ' << row[1] << '!' << std::endl;
+                    }
+                    mysql_free_result(result);
+                } else {
+                    std::cout << 'Login failed.' << std::endl;
+                }
+                mysql_close(connection);
+            }
+        }
+    
+        return 0;
+    }
+    ",
+    "response2" : "",
+    "response3" : ""
 }

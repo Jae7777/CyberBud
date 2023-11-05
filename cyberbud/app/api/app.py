@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException, Request, Response, UploadFile, Form, File, Depends
+"""from fastapi import FastAPI, HTTPException, Request, Response, UploadFile, Form, File, Depends
 from starlette.middleware.sessions import SessionMiddleware
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.inmemory import InMemoryBackend
@@ -106,3 +106,4 @@ async def generate_code(difficulty: str, exploit_type: str, language: str):
     #send generated code to be displayed
     #send information about code to chatbot
     
+"""

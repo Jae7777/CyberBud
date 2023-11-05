@@ -1,6 +1,5 @@
 import { useState } from "react"
 import dynamic from "next/dynamic"
-import IDE from "../IDE"
 import Problem from "./Problem";
 
 async function sendData(data = {}){
@@ -38,12 +37,12 @@ export default function BreakCode() {
         mx-auto
         text-center
       ">
-        <div className="text-2xl text-red-700">
+        <div className="text-2xl text-red-700" id="about">
           Break The Code
         </div>
         {problems.map((item) => {return (
           <Problem 
-            id={item.id}
+            key={item.id}
             title={item.title} 
             difficulty={item.difficulty}
             description={item.description} 

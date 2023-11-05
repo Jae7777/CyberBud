@@ -2,59 +2,46 @@ import CodeMirror from "@uiw/react-codemirror"
 import { vscodeDark } from "@uiw/codemirror-theme-vscode";
 import { useState, useEffect } from "react";
 
-
-async function generteCodeFromData() {
-    try {
-      //get the form data from the form
-      const requestBody = {
-        difficulty: document.getElementById("diff"),
-        language: document.getElementById("lang"),
-        type: document.getElementById("type"),
-      };
-      // Send a POST request to the server with the form data and get the return value of the function as a response.
-      const response = await fetch('/generate-code', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(requestBody),
-      });
-  
-      // Check if the response status is OK (200)
-   
-        // Assuming the response contains the generated code
-        const programcode = await response.text();
-        console.log('Generated code:', programcode);
-        return programcode;
-    }catch (error) {
-        console.error('Error generating code:', error);
-    }
-
-}
-  
-  
+    
 const Chatbox = () => {
   const [code, setCode] = useState('');
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const generatedCode = await generteCodeFromData();
-        setCode(generatedCode || '');
+        const response = await fetch('@app:/generate_code', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                difficulty: "easy",
+                exploit_type: "buffer_overflow",
+                language: "c"
+            })
+        });
+
+        const data = await response.json();
+        console.log(data); 
+        setCode(data.get('code'));
       } catch (error) {
+        console.log(error);
         console.error('Error fetching code:', error);
       }
     }
-
-    fetchData(); // Call the fetchData function
+    async function test(){
+      const response = await fetch("/api/test.json");
+      console.log(response.json());
+    }
+    fetchData();
+    test();
+   
   }, []);
-
   return (
     <div className="
         grid
         grid-cols-2
         justify-center
-        items-center
         align-center
         text-center
     ">
@@ -67,9 +54,11 @@ const Chatbox = () => {
           {code && <pre>{code}</pre>}
           <code>
             {code}
+
           </code>
         </div>
       </div>
+      
       <div className="">
         <div>
           chatbox
