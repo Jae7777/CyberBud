@@ -13,6 +13,11 @@ import json
 import os
 from constants import Constants
 
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return ("Test")
 def createContainer():
     return 0
 
