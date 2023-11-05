@@ -2,8 +2,15 @@
 import Link from 'next/link'
 import About from '../About'
 import ScrollToBottomButton from '../ScrollToBottomButton'
-
+async function testFetch(){
+  const response = await fetch("/api", {
+    method: 'GET',
+    mode: 'cors'
+  });
+  return response;
+}
 const LandingPage = () => {
+    console.log(testFetch())
     return (
         <main className="flex flex-col items-center justify-between p-24">
         <div className="text-center pt-1 mt-4 w-screen">
