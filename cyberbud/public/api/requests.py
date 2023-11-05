@@ -111,11 +111,8 @@ async def chat_with_gpt(input_text: str):
         max_tokens=50,
     )
 
-    if response.status_code == 200:
-        response_data = response.json()
-        return response_data['choices'][0]['text']
-    else:
-        raise HTTPException(status_code=500, detail="Error: Unable to generate a response")
+    response_data = response.json()
+    return response_data['choices'][0]['text']
 
 
 @app.post("/generate-code")

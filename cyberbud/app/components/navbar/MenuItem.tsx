@@ -3,12 +3,10 @@
 import Link from 'next/link'
 
 interface MenuItemProps {
-  route: string
   label: string;
 }
 
 const MenuItem: React.FC<MenuItemProps> = ({
-  route,
   label
 }) => {
   return (
@@ -21,7 +19,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
         font-semibold
       "
     >
-      <Link href={route} >{label}</Link>
+      {label}
     </div>
   )
 }
