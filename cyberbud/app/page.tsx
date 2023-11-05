@@ -1,7 +1,7 @@
 'use client'
 
 import ClientOnly from "./components/ClientOnly"
-import About from "./components/about/About"
+import About from "./components/About"
 import ScrollToBottomButton from "./components/ScrollToBottomButton"
 import Footer from "./components/footer/Footer"
 import LandingPage from "./components/Landing"
