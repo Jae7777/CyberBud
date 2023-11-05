@@ -5,11 +5,12 @@ import { useState, useEffect } from "react";
     
 const Chatbox = () => {
   const [code, setCode] = useState('');
+  const [counter, setCounter] = useState('1');
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('@app:/generate_code', {
+        const response = await fetch('api/generate_code', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -22,8 +23,8 @@ const Chatbox = () => {
         });
 
         const data = await response.json();
-        console.log(data); 
-        setCode(data.get('code'));
+        console.log(data['code']); 
+        setCode(data['code']);
       } catch (error) {
         console.log(error);
         console.error('Error fetching code:', error);
@@ -31,7 +32,11 @@ const Chatbox = () => {
     }
     async function test(){
       const response = await fetch("/api/test.json");
-      console.log(response.json());
+      const data = await response.json();
+      let key = "response" + counter;
+      setCode(data['key'])
+      let tmp = counter + 1;
+      setCounter(tmp);
     }
     fetchData();
     test();
@@ -43,8 +48,7 @@ const Chatbox = () => {
         grid-cols-2
         justify-center
         align-center
-        text-center
-    ">
+      ">
       <div>
         {/* Display the generated code */}
         <div>
@@ -52,10 +56,6 @@ const Chatbox = () => {
         </div>
         <div>
           {code && <pre>{code}</pre>}
-          <code>
-            {code}
-
-          </code>
         </div>
       </div>
       
