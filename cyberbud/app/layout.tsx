@@ -3,6 +3,7 @@ import { Space_Mono } from 'next/font/google'
 import './globals.css'
 import ClientOnly from "./components/ClientOnly"
 import Navbar from "./components/navbar/Navbar"
+import Footer from './components/footer/Footer'
 
 export const metadata: Metadata = {
   title: 'CyberBud',
@@ -22,9 +23,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={font.className}>
-        <ClientOnly>
-          <Navbar />
-        </ClientOnly>
         {children}
       </body>
     </html>

@@ -5,6 +5,7 @@ import MenuItem from './MenuItem'
 import UploadButton from '../UploadButton';
 import { useCallback, useState } from 'react'
 
+
 const UserMenu = () => {
   return (
     <div className="relative">
@@ -21,11 +22,11 @@ const UserMenu = () => {
         <div className="flex flex-row cursor-pointer">
           <>
             <MenuItem 
-              onClick={() => {}}
+              route="/learn-more"
               label="Learn more"
             />
             <MenuItem 
-              onClick={() => {}}
+              route="/break-code"
               label="Break the code"
             />
           </>

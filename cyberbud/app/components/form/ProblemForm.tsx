@@ -2,18 +2,26 @@
 
 import Dropdown from "./Dropdown"
 
-const ProblemForm = () => {
-  
-  async function senddata(){
-    alert("works");
-    const response : Response = await fetch("/api/test.json", {
-      method: "POST", 
-      mode: "cors"
-    });
-    console.log(response);
-  }
-  
 
+
+interface ProblemFormProps {
+  toggle: () => void;
+}
+const ProblemForm: React.FC<ProblemFormProps> = ({
+  toggle,
+}) => {
+  
+  
+  
+  async function sendData() {
+    //call the fastapi endpoint to generate_code  
+    //send the data from the form as params
+
+    //get the response
+    //set the response to the state
+    //toggle the modal
+    toggle()
+  }
   return (
     <div className="text-center lg:my-12 my-4">
       <div className="
@@ -29,31 +37,42 @@ const ProblemForm = () => {
         Let&apos;s Get Hacking
       </div>
       <div className="py-16">
-      <form className="flex justify-center items-center gap-4">
+      <form className="
+        grid 
+        grid-cols-1 
+        sm:grid-cols-3
+        md:grid-cols-3
+        lg:grid-cols-3 
+        items-center 
+        gap-4
+      ">
         <Dropdown 
-        key="1"
-        options={["Easy", "Medium", "Hard"]}
-        name="Difficulty"
+          key="1"
+          options={["Easy", "Medium", "Hard"]}
+          name="Difficulty"
+          id="diff"
         />
         <Dropdown 
-        key="2"
-        options={["C++", "python", "C"]}
-        name="Difficulty"
+          key="2"
+          options={["C++", "python", "C"]}
+          name="Difficulty"
+          id="lang"
         />
         <Dropdown 
-        key="3"
-        options={[
-          "Buffer Overflow", 
-          "Injection Attack", 
-          "Spoofing"
-        ]}
-        name="Difficulty"
+          key="3"
+          options={[
+            "Buffer Overflow", 
+            "Injection Attack", 
+            "Spoofing"
+          ]}
+          name="Difficulty"
+          id="type"
         />
       </form>
       {/* <!-- button to submit form, on new line  --!> */}
       </div>
       <button 
-      onClick={() => senddata()}
+      onClick={() => sendData()}
       className="
           bg-purple-800 
           hover:bg-purple-900 

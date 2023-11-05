@@ -1,18 +1,18 @@
-
 'use client';
 
+import Link from 'next/link'
+
 interface MenuItemProps {
-  onClick: () => void;
+  route: string
   label: string;
 }
 
 const MenuItem: React.FC<MenuItemProps> = ({
-  onClick,
+  route,
   label
 }) => {
   return (
     <div
-      onClick={onClick}
       className="
         px-4
         py-3
@@ -21,7 +21,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
         font-semibold
       "
     >
-      {label}
+      <Link href={route} >{label}</Link>
     </div>
   )
 }

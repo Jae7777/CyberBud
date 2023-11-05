@@ -4,9 +4,10 @@ import Container from "../Container"
 import Logo from "./Logo"
 import UserMenu from "./UserMenu"
 
+
 const Navbar = () => {
   return (
-    <div className="fixed bg-gray-900 w-full z-10 shadow-sm">
+    <div className="bg-gray-900 w-full shadow-sm">
       <div
         className="
           py-2

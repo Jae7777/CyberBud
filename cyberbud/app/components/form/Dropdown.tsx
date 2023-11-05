@@ -4,11 +4,13 @@ interface DropdownProps {
   key: string
   options: string[]
   name: string
+  id: string
 }
 const Dropdown: React.FC<DropdownProps> = ({
   key,
   options,
-  name
+  name,
+  id
 }) => {
   return (
     <>
@@ -19,7 +21,6 @@ const Dropdown: React.FC<DropdownProps> = ({
             h-10 
             w-40
             pl-3 
-            pr-6 
             text-base 
             bg-purple-900 
             outline-double
@@ -30,6 +31,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           " 
           key={key}
           placeholder="Regular input"
+          id={id}
         >
           {options.map((item, index) => {
             return (<option key={index}>{item}</option>)

@@ -22,8 +22,8 @@ export default function About(){
             <div className="
                 w-4/5
                 grid
-                grid-cols-3
-                md:grid-cols-2
+                lg:grid-cols-3
+                md:grid-cols-3
                 sm:grid-col-1
                 justify-center
                 text-center

@@ -2,14 +2,14 @@
   "languages": [
     {
       "name": "c",
-      "functions": [
-        {
-          "name": "printf",
-          "description": "Prints a message to the console."
-        },
+      "vulnurabilities": [
         {
           "name": "gets",
           "description": "Reads a line from stdin into the buffer pointed to by s until either a terminating newline or EOF."
+        },
+        {
+          "name": "fgets",
+          "description": "reads a line from the specified stream and stores it into the string pointed to by str. It stops when either (n-1) characters are read, the newline character is read, or the end-of-file is reached, whichever comes first."
         },
         {
           "name": "strcopy",
